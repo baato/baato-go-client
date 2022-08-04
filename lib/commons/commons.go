@@ -8,29 +8,35 @@ package commons
 
 import (
 	"encoding/json"
+	"errors"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 )
 
 type Commons struct {
-	token string
+	accessToken string
 }
 
-func NewCommons(token string) (*Commons, error) {
-	// if token = ""{
-	// 	return nil, errors.New("Baato token is required!")
-	// }
+func NewCommons(accessToken string) (*Commons, error) {
+	if accessToken == "" {
+		return nil, errors.New("Baato access token is required!")
+	}
 
 	c := &Commons{}
-	c.token = token
+	c.accessToken = accessToken
 	return c, nil
 
 }
 
-func (c *Commons) APIRequest(response interface{}) error {
+func (c *Commons) APIRequest(values *url.Values, response interface{}) error {
 
+	values.Set("key", c.accessToken)
+
+	url := "https://api.baato.io/api/v1/reverse"
 	// Invoke request
 	request, err := http.NewRequest(http.MethodGet, url, nil)
+	request.URL.RawQuery = values.Encode()
 	if err != nil {
 		return nil
 	}

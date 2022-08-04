@@ -11,14 +11,14 @@ type BaatoAPI struct {
 	ReverseGeocode *reversegeocode.ReverseGeocode
 }
 
-func Baato(token string) (*BaatoAPI, error) {
+func Baato(accessToken string) *BaatoAPI {
 
 	instance := &BaatoAPI{}
-	commons, _ := commons.NewCommons(token)
+	commons, _ := commons.NewCommons(accessToken)
 
 	instance.commons = commons
 
 	instance.ReverseGeocode = reversegeocode.NewReverseGeocode(instance.commons)
-	return instance, nil
+	return instance
 
 }
