@@ -22,7 +22,7 @@ type ReverseGeocodeResponse struct {
 	Timestamp string
 	Status    int
 	Message   string
-	*commons.FeatureCollection
+	*commons.ReverseSearchData
 }
 
 func NewReverseGeocode(commons *commons.Commons) *ReverseGeocode {

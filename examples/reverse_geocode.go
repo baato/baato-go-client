@@ -8,7 +8,6 @@ import (
 )
 
 func main() {
-
 	// initialize Baato core module
 	accessToken := "YOUR BAATO ACCESS TOKEN HERE" // Get Baato token from environment
 	baatoMap := baato.Baato(accessToken)
@@ -23,6 +22,5 @@ func main() {
 
 	reverseGeocode, _ := baatoMap.ReverseGeocode.GetReverseGeocode(&reverseGeocodingRequest)
 
-	fmt.Println(reverseGeocode)
-	fmt.Println(reverseGeocode.Data[0].Name + reverseGeocode.Data[0].Address)
+	fmt.Println(reverseGeocode.Data)
 }
