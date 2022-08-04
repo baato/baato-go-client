@@ -17,7 +17,8 @@ func main() {
 
 	// intialize geocoding request options
 	var geocodingRequest = geocode.GeocodeRequestOpts{
-		Q: "po",
+		Q:     "po",
+		Limit: 5,
 	}
 
 	geocode, _ := baatoMap.Geocode.GetGeocode(&geocodingRequest)

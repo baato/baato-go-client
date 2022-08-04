@@ -10,8 +10,8 @@ type Centroid struct {
 }
 
 type Geometry struct {
-	Type        string `json:"type"`
-	Coordinates Point  `json:"coordinates"`
+	Type        string      `json:"type"`
+	Coordinates interface{} `json:"coordinates"`
 }
 
 type ReverseSearchFeature struct {

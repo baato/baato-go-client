@@ -16,8 +16,8 @@ func main() {
 
 	// intialize reverse geocoding request options
 	var reverseGeocodingRequest = reversegeocode.ReverseGeocodeRequestOpts{
-		Lat: 27.7148,
-		Lon: 85.3105,
+		Lat: 27.717728723291803,
+		Lon: 85.32784938812257,
 	}
 
 	reverseGeocode, _ := baatoMap.ReverseGeocode.GetReverseGeocode(&reverseGeocodingRequest)

@@ -14,7 +14,8 @@ type Geocode struct {
 }
 
 type GeocodeRequestOpts struct {
-	Q string `url:"q"`
+	Q     string `url:"q"`
+	Limit int    `url:"limit"`
 }
 
 type GecodeResponse struct {
