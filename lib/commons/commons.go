@@ -33,9 +33,12 @@ func NewCommons(accessToken string) (*Commons, error) {
 
 func (c *Commons) BaatoAPIRequest(apiLabel string, values *url.Values, response interface{}) error {
 
+	// set Baato access token
 	values.Set("key", c.accessToken)
 
+	//create full URL
 	url := config.APIBaseURL + config.APIVersion + apiLabel
+
 	// Invoke request
 	request, err := http.NewRequest(http.MethodGet, url, nil)
 	request.URL.RawQuery = values.Encode()
@@ -49,8 +52,6 @@ func (c *Commons) BaatoAPIRequest(apiLabel string, values *url.Values, response 
 	body, err := ioutil.ReadAll(resp.Body)
 
 	err = json.Unmarshal(body, &response)
-
-	// fmt.Println(string(body))
 
 	return nil
 

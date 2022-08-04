@@ -10,17 +10,19 @@ import (
 func main() {
 
 	// initialize Baato core module
-	accessToken := "YOUR BAATO ACCESS TOKEN HERE"
+	accessToken := "YOUR BAATO ACCESS TOKEN HERE" // Get Baato token from environment
 	baatoMap := baato.Baato(accessToken)
 
 	//reverse geocoding API
 
+	// intialize reverse geocoding request options
 	var reverseGeocodingRequest = reversegeocode.ReverseGeocodeRequestOpts{
 		Lat: 27.7148,
 		Lon: 85.3105,
 	}
 
 	reverseGeocode, _ := baatoMap.ReverseGeocode.GetReverseGeocode(&reverseGeocodingRequest)
+
 	fmt.Println(reverseGeocode)
 	fmt.Println(reverseGeocode.Data[0].Name + reverseGeocode.Data[0].Address)
 }
