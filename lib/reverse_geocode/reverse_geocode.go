@@ -5,6 +5,10 @@ import (
 	"github.com/google/go-querystring/query"
 )
 
+const (
+	apiLabel = "reverse"
+)
+
 type ReverseGeocode struct {
 	commons *commons.Commons
 }
@@ -25,7 +29,7 @@ func NewReverseGeocode(commons *commons.Commons) *ReverseGeocode {
 	return &ReverseGeocode{commons}
 }
 
-func (r *ReverseGeocode) GetGeocode(request *ReverseGeocodeRequestOpts) (*ReverseGeocodeResponse, error) {
+func (r *ReverseGeocode) GetReverseGeocode(request *ReverseGeocodeRequestOpts) (*ReverseGeocodeResponse, error) {
 
 	values, error := query.Values(request)
 
@@ -35,7 +39,7 @@ func (r *ReverseGeocode) GetGeocode(request *ReverseGeocodeRequestOpts) (*Revers
 
 	resp := ReverseGeocodeResponse{}
 
-	r.commons.APIRequest(&values, &resp)
+	r.commons.BaatoAPIRequest(apiLabel, &values, &resp)
 
 	return &resp, error
 }

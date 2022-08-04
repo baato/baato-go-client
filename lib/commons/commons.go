@@ -12,6 +12,8 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+
+	"github.com/baato/baato-go-client/lib/config"
 )
 
 type Commons struct {
@@ -29,11 +31,11 @@ func NewCommons(accessToken string) (*Commons, error) {
 
 }
 
-func (c *Commons) APIRequest(values *url.Values, response interface{}) error {
+func (c *Commons) BaatoAPIRequest(apiLabel string, values *url.Values, response interface{}) error {
 
 	values.Set("key", c.accessToken)
 
-	url := "https://api.baato.io/api/v1/reverse"
+	url := config.APIBaseURL + config.APIVersion + apiLabel
 	// Invoke request
 	request, err := http.NewRequest(http.MethodGet, url, nil)
 	request.URL.RawQuery = values.Encode()
