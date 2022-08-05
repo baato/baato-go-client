@@ -4,7 +4,7 @@ Go client to consume Baato APIs easily.
 
 
 # Initialization
-```
+```go
 // Import core APIs
 import (
 	baato "github.com/baato/baato-go-client/lib"
