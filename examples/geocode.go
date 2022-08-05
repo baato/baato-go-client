@@ -13,7 +13,7 @@ func main() {
 	accessToken := "YOUR BAATO ACCESS TOKEN HERE" // Get Baato token from environment
 	baatoMap := baato.Baato(accessToken)
 
-	//reverse geocoding API
+	//geocoding API
 
 	// intialize geocoding request options
 	var geocodingRequest = geocode.GeocodeRequestOpts{
