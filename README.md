@@ -1,5 +1,5 @@
 
-![Baato Go Client Logo](https://raw.githubusercontent.com/drklrd/baato-go-client/main/goclient.png)
+![Baato Go Client Logo](https://github.com/drklrd/baato-go-client/blob/main/goclient.png?raw=true)
 
 
 # Baato Go Client
