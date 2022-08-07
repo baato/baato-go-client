@@ -3,6 +3,7 @@ package baato
 import (
 	"github.com/baato/baato-go-client/lib/commons"
 	"github.com/baato/baato-go-client/lib/geocode"
+	"github.com/baato/baato-go-client/lib/nearby"
 	reversegeocode "github.com/baato/baato-go-client/lib/reverse_geocode"
 )
 
@@ -11,6 +12,7 @@ type BaatoAPI struct {
 
 	ReverseGeocode *reversegeocode.ReverseGeocode
 	Geocode        *geocode.Geocode
+	NearbyPlaces   *nearby.NearbyPlaces
 }
 
 func Baato(accessToken string) *BaatoAPI {
@@ -22,6 +24,7 @@ func Baato(accessToken string) *BaatoAPI {
 
 	instance.ReverseGeocode = reversegeocode.NewReverseGeocode(instance.commons)
 	instance.Geocode = geocode.NewGeocode(instance.commons)
+	instance.NearbyPlaces = nearby.NewNearbyPlaces(instance.commons)
 	return instance
 
 }

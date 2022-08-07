@@ -64,6 +64,25 @@ fmt.Println(reverseGeocode.Data)
 ```
 
 
+## Nearby Places API
+
+You can use this API to get nearby places around a point that is interesting for you. For a complete list of supported type of places, please see the [docs](https://docs.baato.io/#/v1/services/nearby_places).
+
+```go
+// intialize nearby places request options
+	var nearbyPlacesRequest = nearby.NearbyPlacesRequestOptions{
+		Type: "eat",
+		Lat:  27.717728723291803,
+		Lon:  85.32784938812257,
+	}
+
+	nearbyplaces, _ := baatoMap.NearbyPlaces.GetNearbyPlaces(nearbyPlacesRequest)
+
+	fmt.Println(nearbyplaces.Data)
+```
+
+
+
 
 # Contribution
 You can contribute in many ways (development, issue/bug reporting, feature request, etc.)
