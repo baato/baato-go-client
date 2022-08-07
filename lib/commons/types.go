@@ -43,3 +43,22 @@ type SearchFeature struct {
 type SearchData struct {
 	Data []SearchFeature `json:"data"`
 }
+
+type NearbyPlaceFeature struct {
+	PlaceId            string   `json:"placeId"`
+	OsmId              string   `json:"osmID"`
+	License            string   `json:"license"`
+	Name               string   `json:"name"`
+	Address            string   `json:"address"`
+	Type               string   `json:"type"`
+	Centroid           Centroid `json:"centroid"`
+	Tags               Tags     `json:"tags"`
+	Geometry           Geometry `json:"geometry"`
+	Score              float64  `json:"score"`
+	RadialDistanceInKm int      `json:"radialDistanceInKm"`
+	open               string   `json:"open"`
+}
+
+type NearbyPlacesData struct {
+	Data []NearbyPlaceFeature `json:"data"`
+}
