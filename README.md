@@ -36,6 +36,8 @@ baatoMap := baato.Baato(accessToken)
 
 # Usage 
 
+For a detailed usage instructions, please visit documentation for the Baato-Go-Client avaiable [here](https://docs.baato.io). Quick usage examples are shown here.
+
 ## Geocode (Search) API
 ```go
 // intialize geocoding request options
@@ -81,6 +83,20 @@ You can use this API to get nearby places around a point that is interesting for
 	fmt.Println(nearbyplaces.Data)
 ```
 
+## Directions API
+
+```go
+// intialize directions request options. PointsArray represents points that we should pass through.
+	directionsRequest := directions.DirectionsRequestOptions{
+		PointsArray: []string{"27.6733433,85.2763307", "27.67444444,85.28047222"},
+		Mode:        "bike",
+	}
+
+	directions, _ := baatoMap.Directions.GetDirections(directionsRequest)
+
+	fmt.Println(directions.Data)
+
+```
 
 
 

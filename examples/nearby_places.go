@@ -10,7 +10,7 @@ import (
 func main() {
 
 	// initialize Baato core module
-	accessToken := "bpk.S6SPi8mRVrdrgmukO4jN-MUuNCGwoqTsLggG55uIAeMQ" // Get Baato token from environment
+	accessToken := "YOUR BAATO ACCESS TOKEN" // Get Baato token from environment
 	baatoMap := baato.Baato(accessToken)
 
 	// intialize nearby places request options

@@ -59,6 +59,17 @@ type NearbyPlaceFeature struct {
 	open               string   `json:"open"`
 }
 
+type DirectionsFeature struct {
+	EncodedPolyline  string      `json:"encodedPolyline"`
+	DistanceInMeters float64     `json:"distanceInMeters"`
+	TimeInMs         int         `json:"timeInMs"`
+	InstructionList  interface{} `json:"instructionList"`
+}
+
 type NearbyPlacesData struct {
 	Data []NearbyPlaceFeature `json:"data"`
+}
+
+type DirectionsData struct {
+	Data []DirectionsFeature `json:"data"`
 }
