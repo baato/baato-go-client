@@ -13,7 +13,7 @@ type Geocode struct {
 	commons *commons.Commons
 }
 
-type GeocodeRequestOpts struct {
+type GeocodeRequestOptions struct {
 	Q     string `url:"q"`
 	Limit int    `url:"limit"`
 }
@@ -29,7 +29,7 @@ func NewGeocode(commons *commons.Commons) *Geocode {
 	return &Geocode{commons}
 }
 
-func (g *Geocode) GetGeocode(request *GeocodeRequestOpts) (*GecodeResponse, error) {
+func (g *Geocode) GetGeocode(request GeocodeRequestOptions) (*GecodeResponse, error) {
 	values, error := query.Values(request)
 
 	if error != nil {

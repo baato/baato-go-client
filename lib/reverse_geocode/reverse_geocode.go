@@ -13,7 +13,7 @@ type ReverseGeocode struct {
 	commons *commons.Commons
 }
 
-type ReverseGeocodeRequestOpts struct {
+type ReverseGeocodeRequestOptions struct {
 	Lat float64 `url:"lat,omitempty"`
 	Lon float64 `url:"lon,omitempty"`
 }
@@ -29,7 +29,7 @@ func NewReverseGeocode(commons *commons.Commons) *ReverseGeocode {
 	return &ReverseGeocode{commons}
 }
 
-func (r *ReverseGeocode) GetReverseGeocode(request *ReverseGeocodeRequestOpts) (*ReverseGeocodeResponse, error) {
+func (r *ReverseGeocode) GetReverseGeocode(request ReverseGeocodeRequestOptions) (*ReverseGeocodeResponse, error) {
 
 	values, error := query.Values(request)
 

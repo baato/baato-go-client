@@ -16,12 +16,12 @@ func main() {
 	//geocoding API
 
 	// intialize geocoding request options
-	var geocodingRequest = geocode.GeocodeRequestOpts{
-		Q:     "po",
+	var geocodingRequest = geocode.GeocodeRequestOptions{
+		Q:     "do",
 		Limit: 5,
 	}
 
-	geocode, _ := baatoMap.Geocode.GetGeocode(&geocodingRequest)
+	geocode, _ := baatoMap.Geocode.GetGeocode(geocodingRequest)
 
 	fmt.Println(geocode.Data)
 
