@@ -1,6 +1,7 @@
 # Baato Go Client
 
 ![Build](https://github.com/drklrd/baato-go-client/actions/workflows/baato_go_client.yml/badge.svg)
+[![Documentation](https://img.shields.io/docsrs/badge?style=plastic)](https://docs.baato.io)
 
 
 ![Baato Go Client Logo](https://github.com/drklrd/baato-go-client/blob/main/goclient.png?raw=true)
