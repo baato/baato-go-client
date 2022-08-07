@@ -1,8 +1,12 @@
+# Baato Go Client
+
+![Build](https://github.com/drklrd/baato-go-client/actions/workflows/baato_go_client.yml/badge.svg)
+
 
 ![Baato Go Client Logo](https://github.com/drklrd/baato-go-client/blob/main/goclient.png?raw=true)
 
 
-# Baato Go Client
+
 
 Go client to consume Baato APIs easily.
 
