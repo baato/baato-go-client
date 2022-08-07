@@ -1,1 +1,9 @@
 name: Baato Go Client workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mock Tests
+        run: |
+          echo "Hello World!"
