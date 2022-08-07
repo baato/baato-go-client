@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	baato "github.com/baato/baato-go-client/lib"
-	"github.com/baato/baato-go-client/lib/geocode"
+	geocode "github.com/baato/baato-go-client/lib/geocode"
 )
 
 func main() {
