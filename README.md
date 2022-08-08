@@ -20,7 +20,7 @@ Go client to consume Baato APIs easily.
 // Import core APIs
 import (
 	baato "github.com/baato/baato-go-client/lib"
-	"github.com/baato/baato-go-client/lib/geocode"
+	geocode "github.com/baato/baato-go-client/lib/geocode"
 )
 
 // initialize Baato core module
@@ -43,12 +43,12 @@ For a detailed usage instructions, please visit documentation for the Baato-Go-C
 ## Geocode (Search) API
 ```go
 // intialize geocoding request options
-var geocodingRequest = geocode.GeocodeRequestOpts{
-	Q:     "po",
+var geocodingRequest = geocode.GeocodeRequestOptions{
+	Q:     "do",
 	Limit: 5,
 }
 
-geocode, _ := baatoMap.Geocode.GetGeocode(&geocodingRequest)
+geocode, _ := baatoMap.Geocode.GetGeocode(geocodingRequest)
 
 fmt.Println(geocode.Data)
 ```
@@ -57,12 +57,12 @@ fmt.Println(geocode.Data)
 
 ```go
 // intialize reverse geocoding request options
-var reverseGeocodingRequest = reversegeocode.ReverseGeocodeRequestOpts{
+var reverseGeocodingRequest = reversegeocode.ReverseGeocodeRequestOptions{
 	Lat: 27.717728723291803,
 	Lon: 85.32784938812257,
 }
 
-reverseGeocode, _ := baatoMap.ReverseGeocode.GetReverseGeocode(&reverseGeocodingRequest)
+reverseGeocode, _ := baatoMap.ReverseGeocode.GetReverseGeocode(reverseGeocodingRequest)
 
 fmt.Println(reverseGeocode.Data)
 ```
@@ -74,29 +74,29 @@ You can use this API to get nearby places around a point that is interesting for
 
 ```go
 // intialize nearby places request options
-	var nearbyPlacesRequest = nearby.NearbyPlacesRequestOptions{
-		Type: "eat",
-		Lat:  27.717728723291803,
-		Lon:  85.32784938812257,
-	}
+var nearbyPlacesRequest = nearby.NearbyPlacesRequestOptions{
+	Type: "eat",
+	Lat:  27.717728723291803,
+	Lon:  85.32784938812257,
+}
 
-	nearbyplaces, _ := baatoMap.NearbyPlaces.GetNearbyPlaces(nearbyPlacesRequest)
+nearbyplaces, _ := baatoMap.NearbyPlaces.GetNearbyPlaces(nearbyPlacesRequest)
 
-	fmt.Println(nearbyplaces.Data)
+fmt.Println(nearbyplaces.Data)
 ```
 
 ## Directions API
 
 ```go
 // intialize directions request options. PointsArray represents points that we should pass through.
-	directionsRequest := directions.DirectionsRequestOptions{
-		PointsArray: []string{"27.6733433,85.2763307", "27.67444444,85.28047222"},
-		Mode:        "bike",
-	}
+directionsRequest := directions.DirectionsRequestOptions{
+	PointsArray: []string{"27.6733433,85.2763307", "27.67444444,85.28047222"},
+	Mode:        "bike",
+}
 
-	directions, _ := baatoMap.Directions.GetDirections(directionsRequest)
+directions, _ := baatoMap.Directions.GetDirections(directionsRequest)
 
-	fmt.Println(directions.Data)
+fmt.Println(directions.Data)
 
 ```
 
