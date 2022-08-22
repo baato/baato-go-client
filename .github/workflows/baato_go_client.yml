@@ -2,14 +2,30 @@ name: Baato Go Client workflow
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "feature/add-test-cases"]
   pull_request:
     branches: ["main"]
 
 jobs:
   build:
+    environment: Variables
     runs-on: ubuntu-latest
     steps:
-      - name: Mock Tests
-        run: |
-          echo "Hello World!"
+      - uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.13
+
+      - name: Test Nearby
+        run: BAATO_ACCESS_TOKEN=${{ secrets.BAATO_ACCESS_TOKEN }} go test github.com/baato/baato-go-client/lib/nearby -v
+
+      - name: Test Reverse Geocode
+        run: BAATO_ACCESS_TOKEN=${{ secrets.BAATO_ACCESS_TOKEN }} go test github.com/baato/baato-go-client/lib/reverse_geocode -v
+
+      - name: Test Geocode
+        run: BAATO_ACCESS_TOKEN=${{ secrets.BAATO_ACCESS_TOKEN }} go test github.com/baato/baato-go-client/lib/geocode -v
+
+      - name: Test Directions
+        run: BAATO_ACCESS_TOKEN=${{ secrets.BAATO_ACCESS_TOKEN }} go test github.com/baato/baato-go-client/lib/directions -v
