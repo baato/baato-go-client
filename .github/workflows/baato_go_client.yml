@@ -5,6 +5,8 @@ on:
     branches: ["main", "feature/add-test-cases"]
   pull_request:
     branches: ["main"]
+env:
+  access_token: { { secret.BAATO_ACCESS_TOKEN } }
 
 jobs:
   build:
@@ -18,4 +20,4 @@ jobs:
           go-version: 1.13
 
       - name: Test Nearby
-        run: BAATO_ACCESS_TOKEN=${{env.BAATO_ACCESS_TOKEN}} go test github.com/baato/baato-go-client/lib/nearby -v
+        run: BAATO_ACCESS_TOKEN=${{env.access_token}} go test github.com/baato/baato-go-client/lib/nearby -v
