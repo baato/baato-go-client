@@ -18,6 +18,6 @@ jobs:
           go-version: 1.13
 
       - name: Test Nearby
-        run: BAATO_ACCESS_TOKEN=${BAATO_ACCESS_TOKEN} go test github.com/baato/baato-go-client/lib/nearby -v
+        run: BAATO_ACCESS_TOKEN=${{BAATO_ACCESS_TOKEN}} go test github.com/baato/baato-go-client/lib/nearby -v
         env:
           BAATO_ACCESS_TOKEN: ${{secrets.BAATO_ACCESS_TOKEN}}
