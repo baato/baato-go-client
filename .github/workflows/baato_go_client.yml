@@ -20,3 +20,12 @@ jobs:
 
       - name: Test Nearby
         run: BAATO_ACCESS_TOKEN=${{ secrets.BAATO_ACCESS_TOKEN }} go test github.com/baato/baato-go-client/lib/nearby -v
+
+      - name: Test Reverse Geocode
+        run: BAATO_ACCESS_TOKEN=${{ secrets.BAATO_ACCESS_TOKEN }} go test github.com/baato/baato-go-client/lib/reverse_geocode -v
+
+      - name: Test Geocode
+        run: BAATO_ACCESS_TOKEN=${{ secrets.BAATO_ACCESS_TOKEN }} go test github.com/baato/baato-go-client/lib/geocode -v
+
+      - name: Test Directions
+        run: BAATO_ACCESS_TOKEN=${{ secrets.BAATO_ACCESS_TOKEN }} go test github.com/baato/baato-go-client/lib/directions -v
