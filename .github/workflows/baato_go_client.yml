@@ -2,7 +2,7 @@ name: Baato Go Client workflow
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "feature/add-test-cases"]
   pull_request:
     branches: ["main"]
 
@@ -10,6 +10,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Mock Tests
-        run: |
-          echo "Hello World!"
+      - uses: actions/checkout@v2\
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.13
+
+      - name: Test
+        run: go test -v ./...
