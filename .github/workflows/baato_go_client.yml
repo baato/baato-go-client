@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: ["main"]
 env:
-  access_token: { { secret.BAATO_ACCESS_TOKEN } }
+  access_token: "${{secrets.BAATO_ACCESS_TOKEN}}"
 
 jobs:
   build:
